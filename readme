@@ -1,0 +1,16 @@
+Para executar a aplicação.. 
+    Compile o arquivo JogoServidor.java 
+    com o comando em Prompt: javac JogoServidor.java
+    e depois execute com o comando:
+    java JogoServidor
+
+-> Em seguida para conseguir abrir o launcher do jogo:
+    Compile o arquivo JogoCliente.java
+    com o comando em Prompt: javac JogoCliente.java
+    e depois execute duas vezes o cliente para que o jogo possa começar
+    com dois prompts diferentes execute: java JogoCliente
+    
+------------------------------------------------------------------------------
+
+Ou então caso estiver usando o vsCode é possível usar o pacote de Java nas extenções 
+ é possivel usar o RUN e facilitar o processo
