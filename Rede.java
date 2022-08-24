@@ -33,6 +33,7 @@ public class Rede {
   public void recebeSituacao(Jogador jogador) {
     try {
       jogador.posicao(is.readInt());
+      jogador.posicaoCima((is.readInt()));
       jogador.estado(is.readInt());
       jogador.inverte(is.readBoolean());
     } catch (IOException e) {
@@ -45,7 +46,7 @@ public class Rede {
       int largJogo = is.readInt();
       int altuJogo = is.readInt();
       ambiente.jogador.posicaoXY(50, altuJogo - 15);
-      ambiente.adversario.posicaoXY(largJogo - 50, altuJogo - 15);
+      ambiente.adversario.posicaoXY(200, altuJogo - 15);
       ambiente.ajustaTamanho(largJogo, altuJogo);
     } catch (IOException e) {
       Mensagem.erroFatalExcecao(e);

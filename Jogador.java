@@ -24,7 +24,7 @@ public class Jogador {
   boolean invertido = false;
   int estado = PARADO;
   
-  Tamanho[] tamanho = new Tamanho[9];
+  Tamanho[] tamanho = new Tamanho[5];
   
   int dxCentroJogador = 32;
   int dyCentroJogador = 32;
@@ -42,7 +42,7 @@ public class Jogador {
 
   void inicia() {
     defineTamanhoJogador();
-    rectColisao = new Rectangle(0, 0, tamanho[estado].larg, tamanho[estado].altu);
+    rectColisao = new Rectangle(x, y, tamanho[estado].larg, tamanho[estado].altu);
     estado(PARADO);
   }
 
@@ -59,6 +59,7 @@ public class Jogador {
   void inverte(boolean invertido) {
     this.invertido = invertido;
     posicao(x);
+    posicaoCima(y);
   }
 
   void estado(int estado) {
@@ -69,40 +70,34 @@ public class Jogador {
 
   void posicaoXY(int x, int y) {
     this.y = y;
-      if(invertido){
-        rectColisao.setLocation(y - tamanho[estado].larg + dxCentroJogador, rectColisao.y);
-      }else {
-        rectColisao.setLocation(x - dxCentroJogador, rectColisao.y);
-      }
-      rectColisao.y = y - rectColisao.height;
+    this.x = x;
+        if(invertido){
+         rectColisao.setLocation(x + dxCentroJogador, y + dxCentroJogador);
+        }else {
+          rectColisao.setLocation(x + dxCentroJogador, y + dxCentroJogador);
+        }
+       rectColisao.y = y - rectColisao.height;
+       rectColisao.x = x - rectColisao.height;
     posicao(x);
+    posicaoCima(y);
     
   }
 
  void posicao(int x) {
    this.x = x;
-   if (invertido) {
-     rectColisao.setLocation(x - tamanho[estado].larg + dxCentroJogador, rectColisao.y);
-   } else {
-     rectColisao.setLocation(x - dxCentroJogador, rectColisao.y);
-   }
+    if (invertido) {
+     rectColisao.setLocation(rectColisao.x, rectColisao.y);
+    } else {
+     rectColisao.setLocation(rectColisao.x, rectColisao.y);
+    }
  }
  
   void posicaoCima(int y){
     this.y = y;
-    if (invertido) {
-      rectColisao.setLocation(y - tamanho[estado].larg, rectColisao.y);
-    } else {
-      rectColisao.setLocation(y - dxCentroJogador, rectColisao.y);
-    }
+      if (invertido) {
+       rectColisao.setLocation(rectColisao.x, rectColisao.y);
+      } else {
+        rectColisao.setLocation( rectColisao.x, rectColisao.y);
+       }
   }
-  
-
-
-  
-
-
-  // boolean verificaColisao(Jogador j) {
-  //   return rectColisao.intersects(j.rectColisao);
-  // }
 }

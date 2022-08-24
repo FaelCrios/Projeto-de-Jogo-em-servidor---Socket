@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 class JogadorDesenho extends Jogador {
   JFrame janelaDona;
-  Image[] imagens = new Image[9];
+  Image[] imagens = new Image[5];
 
   int pequenoMovimento = 0;
 
@@ -43,11 +43,11 @@ class JogadorDesenho extends Jogador {
     int larg = rectColisao.width;
     int x = rectColisao.x;
     int y = rectColisao.y;
-    if (invertido) {
-      larg = -larg;
-      x -= larg;
-      y-= larg;
-    }
+    
+    // larg = -larg;
+    // x -= larg;
+
+    
     g.drawImage(imagens[estado], x, y, larg, rectColisao.height,janelaDona);
 
   }

@@ -115,6 +115,7 @@ public class Jogo {
   public void enviaSituacao(int numDoJogador) {
     try {
       os[0].writeInt(jogadores[numDoJogador].x);
+      os[0].writeInt(jogadores[numDoJogador].y);      
       os[0].writeInt(jogadores[numDoJogador].estado);
       os[0].writeBoolean(jogadores[numDoJogador].invertido);
     } catch (IOException e) {
@@ -125,7 +126,8 @@ public class Jogo {
 
   public void enviaSituacaoInvertido(int numDoJogador) {
     try {
-      os[1].writeInt(LARG_JOGO - jogadores[numDoJogador].x);
+      os[1].writeInt(jogadores[numDoJogador].x);
+      os[1].writeInt(jogadores[numDoJogador].y);
       os[1].writeInt(jogadores[numDoJogador].estado);
       os[1].writeBoolean(!jogadores[numDoJogador].invertido);
     } catch (IOException e) {

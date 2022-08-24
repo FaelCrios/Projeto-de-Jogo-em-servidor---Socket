@@ -44,7 +44,7 @@ public class Ambiente extends JPanel {
   @Override
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
-    g.clipRect(5, 5, getWidth() - 10, getHeight() - 10);
+    g.clipRect(0, 0, getWidth(), getHeight());
 
     g.drawImage(imagens[FUNDO], 0, 0, largJogo, altuJogo, this);
 
